@@ -13,6 +13,8 @@ import os, sys, collections
 
 usingPython3 = sys.version_info >= (3,0)
 
+this = "python%s.%s" % sys.version_info[:2]
+
 try:
   import pkgutil
   l = pkgutil.iter_modules()
@@ -153,7 +155,7 @@ class check2(checkbase):
        self.cmd = self.entryPoint
     else:
        if usingPython3:
-         self.cmd = 'python3 %sdreqCmdl.py' % self.entryDir
+         self.cmd = '%s %sdreqCmdl.py' % (this, self.entryDir)
        else:
          self.cmd = 'python2.7 %sdreqCmdl.py' % self.entryDir
 

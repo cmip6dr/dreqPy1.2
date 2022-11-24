@@ -12,6 +12,7 @@ except:
 import os, sys, collections
 
 usingPython3 = sys.version_info >= (3,0)
+verbose = '-V' in sys.argv
 
 this = "python%s.%s" % sys.version_info[:2]
 
@@ -167,6 +168,7 @@ class check2(checkbase):
     ii = open( '.simpleCheck_check5_err.txt' ).readlines()
     if len(ii) > 0:
       print ( 'WARNING[005]: failed to get volume est. with command line call: %s' % self.cmd )
+      if verbose: print( ii )
       self.ok = False
       ##self._clear_ch04()
       return
@@ -190,6 +192,7 @@ class check2(checkbase):
     ii = open( '.simpleCheck_check2_err.txt' ).readlines()
     if len(ii) > 0:
       print ( 'WARNING[003]: failed to get version with command line call' )
+      if verbose: print( ii )
       self.ok = False
       self._clear_ch04()
       return
@@ -197,6 +200,7 @@ class check2(checkbase):
     ii = open( '.simpleCheck_check2.txt' ).readlines()
     if len(ii) < 1:
       print ( 'WARNING[004]: failed to get version with command line call' )
+      if verbose: print( ii )
       self.ok = False
       self._clear_ch04()
       return

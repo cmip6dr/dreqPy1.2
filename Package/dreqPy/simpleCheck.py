@@ -26,7 +26,7 @@ except:
   print ( 'Failed to load pkgutil .. more limited tests on available modules will be done' )
   ll = []
 
-requiredModules = ['xml']
+requiredModules = ['xml','xlsxwriter']
 confirmed = []
 installFailed = []
 missingLib = []
